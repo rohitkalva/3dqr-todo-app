@@ -1,0 +1,41 @@
+<div class="example-container">
+    <div class="form-container">
+      <form [formGroup]="AddTask" (submit)="onClickSubmit()">
+        <mat-form-field class="form-field" appearance="legacy">
+          <mat-label> Title
+          </mat-label>
+          <input matInput formControlName="title" required>
+          <!-- <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
+            <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
+            <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
+          </mat-error> -->
+        </mat-form-field>
+
+        <mat-form-field class="form-field" appearance="legacy">
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" placeholder="" required></textarea>
+          </mat-form-field>
+
+          <mat-form-field class ="form-field" appearance="legacy">
+              <mat-label>Projects</mat-label>
+              <input matInput formControlName="project" required>
+          </mat-form-field>
+
+          <mat-form-field class="form-field" appearance="legacy">
+            <mat-label>Tags</mat-label>
+            <input matInput formControlName="tag" required>
+          </mat-form-field>
+        
+          <!-- <mat-form-field class="form-field" appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="date" required>
+            <mat-datepicker-toggle matSuffix [for]="picker">
+              <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field> -->
+
+        <button mat-raised-button color="primary" type="submit">Finish</button>
+      </form>
+    </div>
+  </div>

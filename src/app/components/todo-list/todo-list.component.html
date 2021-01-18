@@ -1,0 +1,43 @@
+<div class="content">
+    <mat-toolbar color="primary">
+      <span>Hey Bubble <br> 
+        This is your To-Do list.
+      </span>
+      <!-- <button mat-button (click)="toggleGridColumns()" fxHide.lt-md>
+        <span *ngIf="gridColumns === 2">Two Columns</span>
+        <span *ngIf="gridColumns === 3">Three Columns</span>
+      </button> -->
+    </mat-toolbar>
+    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+      <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let match of match">
+        <mat-card class="mat-elevation-z4" >
+            <mat-card-actions>
+                <button mat-button (click)="click_testing()">
+          <mat-card-header>
+            <mat-card-title>{{match.tag}}</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+          {{match.title}}
+          </mat-card-content>
+          <mat-card-footer>{{match.date}}</mat-card-footer>
+          
+            </button>
+          
+        </mat-card-actions>
+        </mat-card>
+      </div>
+      <div>
+        <!-- <mat-card fxFlex fxLayoutAlign="start center" fxLayout="column" class="solution"  
+        [style.borderRadius.px]="'0'"  [style.paddingTop.px]="'60'"> -->
+          <mat-card>
+  <!-- Solution to your problem here ------------------------------------------------>
+  <button (click)="onClickAddTodo()" mat-icon-button color="warn">	<mat-icon>add_circle</mat-icon></button>
+  
+  <!--------------------------------------------------------------------------------->
+  
+  </mat-card>
+        
+      </div>
+    </div>
+   
+    </div>
