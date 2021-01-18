@@ -45,8 +45,11 @@ export class TodoListComponent implements OnInit {
     this.gridColumns = this.gridColumns === 2 ? 3 : 2;
     // this.gridColumns = 2;
   }
-  click_testing(): void{
+  click_testing(id: number): void{
       console.log('button clicked');
+      console.log(id);
+      // this.router.navigate(['/todo-detail'], {queryParams: {id}});
+
   }
 
 }

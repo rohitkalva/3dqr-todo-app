@@ -13,12 +13,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class TodoDetailComponent implements OnInit {
 
   AddTask: FormGroup;
-  public todoId: string;
+  public todoId: number;
   public todoDetail = <Todo>{};
   public mode: string;
-  constructor(
-    private fb: FormBuilder, private router: Router,
-    private todoService: TodoService  ) { 
+  constructor(private fb: FormBuilder, private router: Router,
+              private todoService: TodoService, private activatedRoute: ActivatedRoute) {
       this.AddTask = this.fb.group({
       title: [''],
       description: [''],
@@ -29,7 +28,21 @@ export class TodoDetailComponent implements OnInit {
      }
 
   ngOnInit(): void {
-   
+    // tslint:disable-next-line: deprecation
+    this.activatedRoute.queryParams.subscribe((params: Params) => {
+      this.todoId = params['id'];
+      console.log(this.todoId)
+      if (this.todoId !== undefined) {
+            console.log(this.todoId);
+            this.getTodoDetailById(this.todoId);
+            this.mode = 'Edit';    
+      } else {
+            // this.todoId = null;
+            console.log(this.todoId);
+            this.todoDetail['id'] = 0;
+            this.mode = 'Add';   
+      }
+    }); 
 }
 
   onClickSubmit(): void {
@@ -37,12 +50,18 @@ export class TodoDetailComponent implements OnInit {
       return;
     }
     this.router.navigate(['/todo-list']);
-    this.AddTask.value['id'] = 0;
+    this.AddTask.value['id'] = Date.now();
     this.todoService.updateTodoById(this.AddTask.value);
     console.log(this.AddTask.value);
   }
   // onClickCancel() {
   //   this.router.navigate(['/todo-list']);
   // }
+
+  getTodoDetailById(id: number): void {
+    // tslint:disable-next-line: radix
+    this.todoDetail = this.todoService.getTodoById(id);
+    console.log(this.todoDetail);
+  }
 
 }

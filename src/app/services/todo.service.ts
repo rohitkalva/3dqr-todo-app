@@ -46,23 +46,21 @@ export class TodoService {
   }
 
   updateTodoById(todo): Todo {
-    if (todo.id === 0) {
+    if (todo.id !== 0) {
       const todoArray = JSON.parse(localStorage.getItem('localData'));
-      let todoid = todoArray.length;
-      todo.id = ++todoid;
+      // let todoid = todoArray.length;
+      // todo.id = ++todoid;
       todoArray.push(todo);
       console.log(todoArray)
       localStorage.setItem('localData', JSON.stringify(todoArray));
-    } else {
-      const todoSaveArray = JSON.parse(localStorage.getItem('localData'));
-      console.log(todoSaveArray)
-      for (const i in todoSaveArray) {
-        if (todoSaveArray[i].id === todo.id) {
-          todoSaveArray[i] = todo;
-          localStorage.setItem('localData', JSON.stringify(todoSaveArray));
-        }
-      }
-      console.log('done')
+    // } else {
+    //   const todoSaveArray = JSON.parse(localStorage.getItem('localData'));
+    //   for (const i in todoSaveArray) {
+    //     if (todoSaveArray[i].id === todo.id) {
+    //       todoSaveArray[i] = todo;
+    //       localStorage.setItem('localData', JSON.stringify(todoSaveArray));
+    //     }
+    //   }
     }
     return todo;
   }
