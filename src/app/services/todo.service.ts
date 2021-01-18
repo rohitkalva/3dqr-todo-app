@@ -51,15 +51,18 @@ export class TodoService {
       let todoid = todoArray.length;
       todo.id = ++todoid;
       todoArray.push(todo);
+      console.log(todoArray)
       localStorage.setItem('localData', JSON.stringify(todoArray));
     } else {
       const todoSaveArray = JSON.parse(localStorage.getItem('localData'));
+      console.log(todoSaveArray)
       for (const i in todoSaveArray) {
         if (todoSaveArray[i].id === todo.id) {
           todoSaveArray[i] = todo;
           localStorage.setItem('localData', JSON.stringify(todoSaveArray));
         }
       }
+      console.log('done')
     }
     return todo;
   }
