@@ -17,16 +17,20 @@ export class TodoDetailComponent implements OnInit {
   public todoDetail = <Todo>{};
   public mode: string;
   constructor(
-    private formBuilder: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute,
-    private todoService: TodoService  ) { }
+    private fb: FormBuilder, private router: Router,
+    private todoService: TodoService  ) { 
+      this.AddTask = this.fb.group({
+      title: [''],
+      description: [''],
+      project: [''],
+      tag: [''],
+      date: ['']
+    });
+     
+     }
 
   ngOnInit(): void {
-    this.AddTask = this.formBuilder.group({
-      title: [null],
-      description: [null],
-      project: [null],
-      tag: [null],
-    });
+   
   }
 
   onClickSubmit(): void {
