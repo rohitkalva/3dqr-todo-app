@@ -10,7 +10,11 @@ import { TodoService } from '../../services/todo.service';
 })
 
 export class TodoListComponent implements OnInit {
-  constructor( private router: Router, private todoService: TodoService ) { }
+  constructor( private router: Router, private todoService: TodoService ) { 
+    this.todos = this.todoService.getAllTodos();
+    const match = this.todoService.todos;
+    console.log(match[0].tag);
+  }
   public todos: Todo[] = [];
 
   // tslint:disable-next-line: member-ordering
@@ -51,9 +55,7 @@ export class TodoListComponent implements OnInit {
       this.loadAllTodoList();
   }
   loadAllTodoList(): void {
-      this.todos = this.todoService.getAllTodos();
-      const match = this.todoService.todos;
-      console.log(match[0].tag);
+     
   }
 
   onClickEditTodoDetail(id: any): void {

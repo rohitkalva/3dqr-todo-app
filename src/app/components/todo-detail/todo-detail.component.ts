@@ -26,12 +26,11 @@ export class TodoDetailComponent implements OnInit {
       tag: [''],
       date: ['']
     });
-     
      }
 
   ngOnInit(): void {
    
-  }
+}
 
   onClickSubmit(): void {
     if (!this.AddTask.valid) {
@@ -39,7 +38,6 @@ export class TodoDetailComponent implements OnInit {
     }
     this.router.navigate(['/todo-list']);
     this.AddTask.value['id'] = 0;
-    this.AddTask.value['date'] = '2021-01-25';
     this.todoService.updateTodoById(this.AddTask.value);
     console.log(this.AddTask.value);
   }
