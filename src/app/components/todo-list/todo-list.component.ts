@@ -9,53 +9,22 @@ import { TodoService } from '../../services/todo.service';
   styleUrls: ['./todo-list.component.css']
 })
 
-export class TodoListComponent implements OnInit {
-  constructor( private router: Router, private todoService: TodoService ) { 
-    this.todos = this.todoService.getAllTodos();
-    const match = this.todoService.todos;
-    console.log(match[0].tag);
-  }
-  public todos: Todo[] = [];
 
-  // tslint:disable-next-line: member-ordering
+export class TodoListComponent implements OnInit {
+  public todos: Todo[] = [];
+  // match: Todo[];
+  constructor( private router: Router, private todoService: TodoService ) { }
+
+
   title = 'todo-app';
-//   match = [{
-//     'title':'Time to Eat',
-//     'description': 'eat on time to stay healthy',
-//     'project': 'eat',
-//     'timestamp': '2021-01-26',
-//     'tag':'eat'
-//   },
-//   {
-//     'title':'Working Day',
-//     'description': 'start working on time',
-//     'project': 'start work',
-//     'timestamp': '2021-01-27',
-//     'tag':'work'
-//   },
-//   {
-//     'title':'Time to Eat',
-//     'description': 'eat on time to stay healthy',
-//     'project': 'eat',
-//     'timestamp': '2021-01-26',
-//     'tag':'eat'
-//   },
-//   {
-//     'title':'Working Day',
-//     'description': 'start working on time',
-//     'project': 'start work',
-//     'timestamp': '2021-01-27',
-//     'tag':'work'
-//   }
-// ];
- match = this.todoService.todos;
+
   gridColumns = 2;
 
   ngOnInit(): void {
       this.loadAllTodoList();
   }
   loadAllTodoList(): void {
-     
+    this.todos = this.todoService.getAllTodos();
   }
 
   onClickEditTodoDetail(id: any): void {
@@ -73,8 +42,8 @@ export class TodoListComponent implements OnInit {
   }
 
   toggleGridColumns(): void {
-    // this.gridColumns = this.gridColumns === 2 ? 3 : 2;
-    this.gridColumns = 2;
+    this.gridColumns = this.gridColumns === 2 ? 3 : 2;
+    // this.gridColumns = 2;
   }
   click_testing(): void{
       console.log('button clicked');

@@ -15,7 +15,6 @@ import { TodoService } from '../../services/todo.service';
     CommonModule,
     TodoListRoutingModule,
     // BrowserAnimationsModule,
-    
   ],
   providers: [
     TodoService

@@ -9,17 +9,17 @@
       </button> -->
     </mat-toolbar>
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
-      <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let match of match">
+      <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let todo of todos" >
         <mat-card class="mat-elevation-z4" >
             <mat-card-actions>
                 <button mat-button (click)="click_testing()">
           <mat-card-header>
-            <mat-card-title>{{match.tag}}</mat-card-title>
+            <mat-card-title>{{todo.tag}}</mat-card-title>
           </mat-card-header>
           <mat-card-content>
-          {{match.title}}
+          {{todo.title}}
           </mat-card-content>
-          <mat-card-footer>{{match.date}}</mat-card-footer>
+          <mat-card-footer>{{todo.date}}</mat-card-footer>
           
             </button>
           
