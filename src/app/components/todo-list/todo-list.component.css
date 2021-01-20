@@ -1,0 +1,53 @@
+::ng-deep .mat-icon{
+    height:48px !important;
+    width:48px !important;
+    font-size:48px !important;
+    align-items: left;
+}
+
+.task-box{
+    margin-top: 5px;
+}
+
+.add-icon {
+    color: #ee5d6e;
+    /* margin-left: -15px; */
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.view-task{
+    margin-top: 3%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    height:90% ;
+    width:80%;
+    
+
+    /* align-items: center; */
+    /* font-size:48px !important; */
+}
+.text-alignment-header{
+    /* margin-left:-35%;  */
+    text-align: left;
+    height:5%; 
+    width: 100px;
+    /* background-color: grey; */
+    font-size: 12;
+}
+
+/* .text-alignment-content{
+    margin-left:-10%; 
+    text-align: left;
+}*/
+
+.text-alignment-footer{
+    margin-left:-5%; 
+    text-align: left;
+} 
+
+.mat-toolbar{
+    background-color: white;
+    text-align: center;
+}

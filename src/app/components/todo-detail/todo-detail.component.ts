@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../model/todo';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import * as moment from 'moment';
 
 
 @Component({
@@ -50,7 +51,13 @@ export class TodoDetailComponent implements OnInit {
       return;
     }
     this.router.navigate(['/todo-list']);
+    const temp_date = this.AddTask.value.date;
+    delete this.AddTask.value.date;
+    const date = moment(temp_date).format("YYYY-MM-DD");
+
     this.AddTask.value['id'] = Date.now();
+    this.AddTask.value['date'] = date;
+
     this.todoService.updateTodoById(this.AddTask.value);
     console.log(this.AddTask.value);
   }

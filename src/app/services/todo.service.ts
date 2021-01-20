@@ -12,24 +12,9 @@ export class TodoService {
     if (localStorage.getItem('localData') !== null) {
       this.todos = JSON.parse(localStorage.getItem('localData'));
       console.log('Second');
-    } else {
-      const todoArrayData = [{
-          id: 1,
-          title: 'Shopping.',
-          description: 'Shop for grocerries.',
-          project: 'Shopping',
-          tag: 'purchase',
-          date: '2021-01-20',
-        },
-        {
-          id: 2,
-          title: 'Submit Assignment.',
-          description: 'Submit assignment for chapter 5.',
-          project: 'assignment',
-          tag: 'study',
-          date: '2021-01-25',
-        }
-      ];
+    }
+    else {
+      const todoArrayData = [];
       localStorage.setItem('localData', JSON.stringify(todoArrayData));
       this.todos = JSON.parse(localStorage.getItem('localData'));
       console.log('First');
