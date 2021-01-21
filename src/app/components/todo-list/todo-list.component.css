@@ -30,20 +30,22 @@
 }
 .text-alignment-header{
     /* margin-left:-35%;  */
-    text-align: left;
+    /* text-align: left; */
     height:5%; 
     width: 100px;
     /* background-color: grey; */
     font-size: 12;
+    color: white;
+    text-align: center;
 }
 
-/* .text-alignment-content{
-    margin-left:-10%; 
+.text-alignment-content{
+    /* margin-left:-10%;  */
     text-align: left;
-}*/
+}
 
 .text-alignment-footer{
-    margin-left:-5%; 
+    margin-left:2px; 
     text-align: left;
 } 
 
