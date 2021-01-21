@@ -6,6 +6,7 @@ import { TodoDetailComponent } from './todo-detail.component';
 import { TodoService } from '../../services/todo.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 @NgModule({
@@ -17,7 +18,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatIconModule
   ],
   providers: [
     TodoService

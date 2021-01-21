@@ -1,41 +1,65 @@
-<div class="example-container">
-    <div class="form-container">
-      <form [formGroup]="AddTask" (submit)="onClickSubmit()">
+<div class="container">
+  <div class="form-container">
+    <form [formGroup]="AddTask" (submit)="onClickSubmit()">
+      <div style="text-align:center;">
         <mat-form-field class="form-field" appearance="legacy">
           <mat-label> Title
           </mat-label>
           <input matInput formControlName="title" required>
-          <!-- <mat-error *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">
-            <span *ngIf="loginForm.controls.email.errors.required">This field is mandatory.</span>
-            <span *ngIf="loginForm.controls.email.errors.pattern">This field is invalid.</span>
-          </mat-error> -->
         </mat-form-field>
+      </div>
 
+      <br>
+
+      <div style="text-align:center;">
         <mat-form-field class="form-field" appearance="legacy">
-            <mat-label>Description</mat-label>
-            <textarea matInput formControlName="description" placeholder="" required></textarea>
-          </mat-form-field>
+          <mat-label>Description</mat-label>
+          <img matPrefix class="input-icon" src="https://freeicons.io/icon/download?_token=eIe7bK2twHCgPG03OgnXnLkqrFAwQmWsxGgeUall&icon_id=19241&type=svg" width="16px" height="16px">
+          <input matInput formControlName="description" placeholder="" required>
+        </mat-form-field>
+      </div>
 
-          <mat-form-field class ="form-field" appearance="legacy">
-              <mat-label>Projects</mat-label>
-              <input matInput formControlName="project" required>
-          </mat-form-field>
+      <br>
 
-          <mat-form-field class="form-field" appearance="legacy">
-            <mat-label>Tags</mat-label>
-            <input matInput formControlName="tag" required>
-          </mat-form-field>
-        
-        <mat-form-field class="form-field" appearance="fill">
-            <mat-label>Choose a date</mat-label>
-            <input matInput [matDatepicker]="picker" formControlName="date" required>
-            <mat-datepicker-toggle matSuffix [for]="picker">
-             <!--  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>-->
-            </mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
-          </mat-form-field> 
+      <div style="text-align:center;">
+        <mat-form-field class="form-field" appearance="legacy">
+          
+          <mat-label>Projects</mat-label>
+          <mat-icon matPrefix class="input-icon" height="16px" width="16px" matPrefix>folder_open</mat-icon>
 
-        <button mat-raised-button color="primary" type="submit">Finish</button>
-      </form>
-    </div>
+          <input matInput formControlName="project" required>
+
+        </mat-form-field>
+      </div>
+
+      <br>
+      <div style="text-align:center;">
+        <mat-form-field class="form-field" appearance="legacy">
+          <mat-label>Tags</mat-label>
+          <input matInput formControlName="tag" required>
+          <img matPrefix class="input-icon" src="https://freeicons.io/icon/download?_token=eIe7bK2twHCgPG03OgnXnLkqrFAwQmWsxGgeUall&icon_id=3903&type=svg" width="16px" height="16px">
+
+        </mat-form-field>
+      </div>
+
+      <br>
+      <div style="text-align:center;">
+        <mat-form-field class="form-field" appearance="legacy">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="date" required>
+          <mat-datepicker-toggle matSuffix [for]="picker">
+            <!--  <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>-->
+          </mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <br>
+
+      <div style="text-align:center;">
+        <button mat-raised-button class="button" type="submit">Finish</button>
+      </div>
+
+    </form>
   </div>
+</div>

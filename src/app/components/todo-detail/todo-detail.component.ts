@@ -15,6 +15,7 @@ export class TodoDetailComponent implements OnInit {
 
   AddTask: FormGroup;
   public todoId: number;
+  formSubmitted: boolean = false;
   public todoDetail = <Todo>{};
   public mode: string;
   constructor(private fb: FormBuilder, private router: Router,
