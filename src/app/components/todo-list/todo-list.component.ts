@@ -6,36 +6,31 @@ import { TodoService } from '../../services/todo.service';
 @Component({
   selector: 'app-todo-list',
   templateUrl: './todo-list.component.html',
-  styleUrls: ['./todo-list.component.css']
+  styleUrls: ['./todo-list.component.css'],
 })
-
-
 export class TodoListComponent implements OnInit {
   public todos: Todo[] = [];
   breakpoint: number;
 
-  constructor( private router: Router, private todoService: TodoService ) { }
-
+  constructor(private router: Router, private todoService: TodoService) {}
 
   title = 'todo-app';
 
   ngOnInit(): void {
-      this.loadAllTodoList();
-      this.onResize(window.innerWidth);
-
+    this.loadAllTodoList();
+    this.onResize(window.innerWidth);
   }
   loadAllTodoList(): void {
     this.todos = this.todoService.getAllTodos();
   }
 
   onClickAddTodo(): void {
-      this.router.navigate(['/todo-detail']);
+    this.router.navigate(['/todo-detail']);
   }
 
   getRandomColor(): any {
     const color = Math.floor(0x1000000 * Math.random()).toString(16);
     return '#' + ('000000' + color).slice(-6);
-
   }
 
   onResize(event): void {
@@ -58,12 +53,9 @@ export class TodoListComponent implements OnInit {
   }
 
   getTodoById(id: any): void {
-      // tslint:disable-next-line: radix onClickEditTodoDetail
+    // tslint:disable-next-line: radix onClickEditTodoDetail
     const temp = this.todoService.getTodoById(id);
     console.log(temp);
     // this.router.navigate(['/todo-detail'], {queryParams: {id}});
-
   }
 }
-
-

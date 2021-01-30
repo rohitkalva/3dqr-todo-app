@@ -1,28 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule  } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 // import { TopHeaderComponent } from './components/top-header/top-header.component';
-import {TodoListComponent} from './components/todo-list/todo-list.component';
-import {MatIconModule} from '@angular/material/icon';
-import { MatCardModule} from '@angular/material/card';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
-import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    TodoListComponent,
-  ],
+  declarations: [AppComponent, TodoListComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -37,9 +33,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDatepickerModule,
     MatInputModule,
     MatNativeDateModule,
-    MatRippleModule
+    MatRippleModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

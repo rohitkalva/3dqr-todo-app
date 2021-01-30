@@ -1,19 +1,16 @@
-import {Injectable} from '@angular/core';
-import {Todo} from '../model/todo';
+import { Injectable } from '@angular/core';
+import { Todo } from '../model/todo';
 
 @Injectable()
 export class TodoService {
-
   public todos: Todo[] = [];
   constructor() {}
 
   getAllTodos(): Todo[] {
-
     if (localStorage.getItem('localData') !== null) {
       this.todos = JSON.parse(localStorage.getItem('localData'));
       console.log('Second');
-    }
-    else {
+    } else {
       const todoArrayData = [];
       localStorage.setItem('localData', JSON.stringify(todoArrayData));
       this.todos = JSON.parse(localStorage.getItem('localData'));
@@ -25,9 +22,7 @@ export class TodoService {
   getTodoById(id: any): Todo {
     const todoArray = JSON.parse(localStorage.getItem('localData'));
     console.log(todoArray);
-    return todoArray
-      .filter(todo => todo.id === id)
-      .pop();
+    return todoArray.filter((todo) => todo.id === id).pop();
   }
 
   updateTodoById(todo): Todo {
@@ -38,14 +33,14 @@ export class TodoService {
       todoArray.push(todo);
       console.log(todoArray);
       localStorage.setItem('localData', JSON.stringify(todoArray));
-    // } else {
-    //   const todoSaveArray = JSON.parse(localStorage.getItem('localData'));
-    //   for (const i in todoSaveArray) {
-    //     if (todoSaveArray[i].id === todo.id) {
-    //       todoSaveArray[i] = todo;
-    //       localStorage.setItem('localData', JSON.stringify(todoSaveArray));
-    //     }
-    //   }
+      // } else {
+      //   const todoSaveArray = JSON.parse(localStorage.getItem('localData'));
+      //   for (const i in todoSaveArray) {
+      //     if (todoSaveArray[i].id === todo.id) {
+      //       todoSaveArray[i] = todo;
+      //       localStorage.setItem('localData', JSON.stringify(todoSaveArray));
+      //     }
+      //   }
     }
     return todo;
   }
