@@ -22,7 +22,7 @@ export class TodoService {
     return this.todos;
   }
 
-  getTodoById(id: number): Todo {
+  getTodoById(id: any): Todo {
     const todoArray = JSON.parse(localStorage.getItem('localData'));
     console.log(todoArray);
     return todoArray
@@ -36,7 +36,7 @@ export class TodoService {
       // let todoid = todoArray.length;
       // todo.id = ++todoid;
       todoArray.push(todo);
-      console.log(todoArray)
+      console.log(todoArray);
       localStorage.setItem('localData', JSON.stringify(todoArray));
     // } else {
     //   const todoSaveArray = JSON.parse(localStorage.getItem('localData'));

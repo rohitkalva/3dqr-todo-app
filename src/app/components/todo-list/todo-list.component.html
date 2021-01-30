@@ -1,48 +1,47 @@
-<div class="content">
-    <!-- <mat-toolbar > -->
-      <h1 class="mat-toolbar">Hey Bubble <br> 
-        This is your To-Do list.
-      </h1>
-      <!-- <button mat-button (click)="toggleGridColumns()" fxHide.lt-md>
-        <span *ngIf="gridColumns === 2">Two Columns</span>
-        <span *ngIf="gridColumns === 3">Three Columns</span>
-      </button> -->
-    <!-- </mat-toolbar> -->
-  </div>
-  <!-- fxLayoutAlign="center" -->
-    
-    <div class="task-box" fxLayout="row wrap" fxLayoutGap="5px grid" >
-      <div   [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="50%" fxFlex.sm="50%" *ngFor="let todo of todos" >
-       
-        <mat-card-actions class="view-task">
-          <mat-card  >
-                <button class="view-task" mat-button (click)="click_testing(todo.id)">
-                  
-          <mat-card-header class="text-alignment-header" [ngStyle]="{'background-color': getRandomColor()}" >{{todo.tag}}</mat-card-header>
-            <!-- <mat-card-title >{{todo.tag}}</mat-card-title> -->
+<div class="grid-container">
+  <h1 class="mat-h1">
+    Hey Bubble <br />
+    This is your To-Do list.
+  </h1>
 
-          <mat-card-content class="text-alignment-content">{{todo.title}}</mat-card-content>
-          <mat-card-footer class="text-alignment-footer">{{todo.date}}</mat-card-footer>
-          
-            </button>
-          </mat-card>   
-        </mat-card-actions>
-       
-      </div>
-     </div>
-   
+  <mat-grid-list
+    [cols]="breakpoint"
+    (window:resize)="onResize($event.target.innerWidth)"
+    rowHeight="1:1"
+    class="grid-list"
+    [gutterSize]="'20px'"
+    style="box-sizing: border-box;"
+  >
+    <mat-grid-tile
+      *ngFor="let todo of todos"
+      (click)="getTodoById(todo.id)"
+    >
+      <mat-card class="tile-card">
+        <!-- <mat-card-header>
+          <mat-card-title>{{tile.text}}</mat-card-title>
+        </mat-card-header> -->
+        <p>
+          <span
+            [ngStyle]="{'background-color': getRandomColor(), 'display': 'inline'}"
+          >
+            {{todo.tag}}
+          </span>
+        </p>
+        <mat-card-content>
+          {{todo.description}}
+        </mat-card-content>
 
-    <div>
-      <!-- <mat-card fxFlex fxLayoutAlign="start center" fxLayout="column" class="solution"  
-      [style.borderRadius.px]="'0'"  [style.paddingTop.px]="'60'"> -->
-        <!-- <mat-card>
-<button (click)="onClickAddTodo()" mat-icon-button color="warn">	<mat-icon >add_circle</mat-icon></button>
+        <!-- <mat-card-footer class="footer-card">
+          <p>bye</p>
+        </mat-card-footer> -->
+        <p id="bottom">{{todo.date}}</p>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
 
-
-</mat-card> -->
-
-<button mat-button  (click)="onClickAddTodo()">    
-  <mat-icon class="add-icon">add_circle</mat-icon>
-</button>
-      
-    </div>
+<div>
+  <button mat-button (click)=(onClickAddTodo())>
+    <mat-icon class="add-icon">add_circle</mat-icon>
+  </button>
+</div>

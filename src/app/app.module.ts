@@ -15,6 +15,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
     MatToolbarModule,
     MatButtonModule,
     FlexLayoutModule,
+    MatGridListModule,
     RouterModule,
     MatDatepickerModule,
     MatInputModule,

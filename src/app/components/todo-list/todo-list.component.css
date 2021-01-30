@@ -5,51 +5,47 @@
     align-items: left;
 }
 
-.task-box{
-    margin-top: 5px;
-}
 
-.add-icon {
+::ng-deep  .add-icon {
     color: #ee5d6e;
     /* margin-left: -15px; */
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.view-task{
-    margin-top: 3%;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    height:90% ;
-    width:80%;
+::ng-deep  .grid-list {
+    width: 95%;
+    margin: 20px auto;
+    margin-top: 60px;
+  }
+  
+::ng-deep .tile-card {
+    width: 100%;
+    height: 100%;
+    border: grey;
+    box-sizing: border-box;
     
+  }
+  
+  
+  .mat-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 
-    /* align-items: center; */
-    /* font-size:48px !important; */
-}
-.text-alignment-header{
-    /* margin-left:-35%;  */
-    /* text-align: left; */
-    height:5%; 
-    width: 100px;
-    /* background-color: grey; */
-    font-size: 12;
-    color: white;
-    text-align: center;
-}
-
-.text-alignment-content{
-    /* margin-left:-10%;  */
-    text-align: left;
-}
-
-.text-alignment-footer{
-    margin-left:2px; 
-    text-align: left;
-} 
-
-.mat-toolbar{
-    background-color: white;
-    text-align: center;
-}
+  }
+  
+  ::ng-deep  .mat-card-header {
+    flex-shrink: 0;
+  }
+  
+  ::ng-deep  .mat-card-content {
+    flex-grow: 1;
+    overflow: auto;
+  }
+  
+  ::ng-deep  #bottom {
+    position: absolute;
+    bottom: 0;
+  }
+  
