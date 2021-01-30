@@ -1,51 +1,43 @@
 <div class="container">
   <div class="form-container">
-    <form [formGroup]="AddTask" (submit)="onClickSubmit()">
-      <div style="text-align:center;">
-        <mat-form-field class="form-field" appearance="legacy">
+    <mat-card>
+      <form [formGroup]="AddTask" (submit)="onClickSubmit()">
+        <mat-form-field appearance="legacy" hideRequiredMarker>
           <mat-label> Title
           </mat-label>
           <input matInput formControlName="title" required>
         </mat-form-field>
-      </div>
 
-      <br>
-
-      <div style="text-align:center;">
-        <mat-form-field class="form-field" appearance="legacy">
-          <mat-label>Description</mat-label>
-          <img matPrefix class="input-icon" src="https://freeicons.io/icon/download?_token=eIe7bK2twHCgPG03OgnXnLkqrFAwQmWsxGgeUall&icon_id=19241&type=svg" width="16px" height="16px">
-          <input matInput formControlName="description" placeholder="" required>
+        <img matPrefix class="input-icon"
+          src="https://freeicons.io/icon/download?_token=eIe7bK2twHCgPG03OgnXnLkqrFAwQmWsxGgeUall&icon_id=19241&type=svg"
+          width="16px" height="16px">
+        <mat-label> Description</mat-label>
+        <mat-form-field appearance="legacy" hideRequiredMarker>
+          <textarea style="margin-left:20px;" matInput formControlName="description" placeholder="" value="hi"
+            required></textarea>
         </mat-form-field>
-      </div>
 
-      <br>
-
-      <div style="text-align:center;">
-        <mat-form-field class="form-field" appearance="legacy">
-          
-          <mat-label>Projects</mat-label>
+        <img matPrefix class="input-icon" src="https://cdn1.iconfinder.com/data/icons/internet-28/48/43-512.png"
+          width="16px" height="16px">
+        <mat-label> Projects</mat-label>
+        <mat-form-field appearance="legacy" hideRequiredMarker>
           <!-- <mat-icon matPrefix class="input-icon" height="16px" width="16px" matPrefix>folder_open</mat-icon> -->
-          <img matPrefix class="input-icon" src="https://cdn1.iconfinder.com/data/icons/internet-28/48/43-512.png" width="16px" height="16px">
-
-          <input matInput formControlName="project" required>
-
+          <input style="margin-left:20px;" matInput formControlName="project" required>
         </mat-form-field>
-      </div>
 
-      <br>
-      <div style="text-align:center;">
-        <mat-form-field class="form-field" appearance="legacy">
-          <mat-label>Tags</mat-label>
-          <input matInput formControlName="tag" required>
-          <img matPrefix class="input-icon" src="https://freeicons.io/icon/download?_token=eIe7bK2twHCgPG03OgnXnLkqrFAwQmWsxGgeUall&icon_id=3903&type=svg" width="16px" height="16px">
-
+        <img matPrefix class="input-icon"
+          src="https://freeicons.io/icon/download?_token=eIe7bK2twHCgPG03OgnXnLkqrFAwQmWsxGgeUall&icon_id=3903&type=svg"
+          width="16px" height="16px">
+        <mat-label> Tags</mat-label>
+        <mat-form-field appearance="legacy" hideRequiredMarker>
+          <img style="margin-left:20px;" matPrefix class="input-icon"
+            src="https://freeicons.io/icon/download?_token=Rs8hCBFjnFpbktvPTCsDXCRpQevLPFOYCMSDSZwP&icon_id=5220&type=original&size=128"
+            width="16px" height="16px">
+          <mat-label>Add Tags</mat-label>
+          <input style="margin-left:2px;" matInput formControlName="tag" required>
         </mat-form-field>
-      </div>
 
-      <br>
-      <div style="text-align:center;">
-        <mat-form-field class="form-field" appearance="legacy">
+        <mat-form-field appearance="legacy" hideRequiredMarker>
           <mat-label>Choose a date</mat-label>
           <input matInput [matDatepicker]="picker" formControlName="date" required>
           <mat-datepicker-toggle matSuffix [for]="picker">
@@ -53,14 +45,11 @@
           </mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-      </div>
 
-      <br>
-
-      <div style="text-align:center;">
-        <button mat-raised-button class="button" type="submit">Finish</button>
-      </div>
-
-    </form>
+        <div style="text-align: center;">
+          <button mat-raised-button class="button" type="submit">Finish</button>
+        </div>
+      </form>
+    </mat-card>
   </div>
 </div>

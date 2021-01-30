@@ -9,6 +9,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatCardModule } from '@angular/material/card';
+
 @NgModule({
   declarations: [TodoDetailComponent],
   imports: [
@@ -19,7 +21,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     ReactiveFormsModule,
     MatInputModule,
     MatDatepickerModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule
   ],
   providers: [
     TodoService

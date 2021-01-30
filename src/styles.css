@@ -1,13 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
-/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
 body { 
-    font-family: Roboto, Arial, sans-serif;
+    font-family:  sans-serif;
     margin: 0;
+
   }
-  
+  *{
+    font-family: 'Bungee', cursive;
+  font-family: 'Nunito', sans-serif;
+  }
   .basic-container {
     padding: 30px;
   }
