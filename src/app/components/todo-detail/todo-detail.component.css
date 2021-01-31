@@ -50,5 +50,5 @@ mat-label {
   display: inline-block;
   border: none;
   font-size: 110%;
-
+  cursor:pointer;
 }

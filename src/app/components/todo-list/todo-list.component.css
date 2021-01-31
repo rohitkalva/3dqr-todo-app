@@ -47,4 +47,5 @@
 ::ng-deep #bottom {
   position: absolute;
   bottom: 0;
+  color: grey;
 }

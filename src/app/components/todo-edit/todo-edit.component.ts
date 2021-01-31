@@ -40,6 +40,7 @@ export class TodoEditComponent implements OnInit {
       if (this.todoId !== undefined) {
         this.getTodoDetailById(this.todoId);
       } else {
+        alert('Select correct task');
         this.router.navigate(['/']);
       }
     });
