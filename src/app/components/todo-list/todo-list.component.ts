@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { cpuUsage } from 'process';
 import { Todo } from '../../model/todo';
 import { TodoService } from '../../services/todo.service';
 
@@ -52,10 +53,16 @@ export class TodoListComponent implements OnInit {
     }
   }
 
-  getTodoById(id: any): void {
-    // tslint:disable-next-line: radix onClickEditTodoDetail
-    const temp = this.todoService.getTodoById(id);
-    console.log(temp);
-    // this.router.navigate(['/todo-detail'], {queryParams: {id}});
+  // getTodoById(id: any): void {
+  //   // tslint:disable-next-line: radix onClickEditTodoDetail
+  //   const temp = this.todoService.getTodoById(id);
+  //   console.log(temp);
+  //   // this.router.navigate(['/todo-detail'], {queryParams: {id}});
+  // }
+
+  todoEdit(id: any): void {
+    const todoValue = this.todoService.getTodoById(id);
+    console.log(todoValue);
+    this.router.navigate(['/todo-edit'], {queryParams: {id}});
   }
 }

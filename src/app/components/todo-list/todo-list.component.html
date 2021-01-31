@@ -1,12 +1,12 @@
 <div class="grid-container">
-  <h1 >
+  <h1>
     Hey Bubble, <br />
     This is your to-do list.
   </h1>
 
   <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event.target.innerWidth)" rowHeight="1:1"
     class="grid-list" [gutterSize]="'20px'" style="box-sizing: border-box;">
-    <mat-grid-tile *ngFor="let todo of todos" (click)="getTodoById(todo.id)">
+    <mat-grid-tile *ngFor="let todo of todos" (click)="todoEdit(todo.id)">
       <mat-card class="tile-card">
         <!-- <mat-card-header>
           <mat-card-title>{{tile.text}}</mat-card-title>
