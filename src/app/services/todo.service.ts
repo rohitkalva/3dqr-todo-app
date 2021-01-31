@@ -9,19 +9,16 @@ export class TodoService {
   getAllTodos(): Todo[] {
     if (localStorage.getItem('localData') !== null) {
       this.todos = JSON.parse(localStorage.getItem('localData'));
-      console.log('Second');
     } else {
       const todoArrayData = [];
       localStorage.setItem('localData', JSON.stringify(todoArrayData));
       this.todos = JSON.parse(localStorage.getItem('localData'));
-      console.log('First');
     }
     return this.todos;
   }
 
   getTodoById(timeStamp: any): Todo {
     const todoArray = JSON.parse(localStorage.getItem('localData'));
-    console.log(todoArray);
     // tslint:disable-next-line: radix
     const temp = todoArray.filter((todo) => todo.id === parseInt(timeStamp)).pop();
     return temp;
@@ -33,7 +30,6 @@ export class TodoService {
       // let todoid = todoArray.length;
       // todo.id = ++todoid;
       todoArray.push(todo);
-      console.log(todoArray);
       localStorage.setItem('localData', JSON.stringify(todoArray));
       // } else {
       //   const todoSaveArray = JSON.parse(localStorage.getItem('localData'));
@@ -54,7 +50,6 @@ export class TodoService {
       if (todoArray[i].id === parseInt(id)) {
         todoArray.splice(i, 1);
         localStorage.setItem('localData', JSON.stringify(todoArray));
-        console.log(todoArray);
       }
     }
   }

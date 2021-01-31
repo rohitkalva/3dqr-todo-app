@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TodoService } from '../../services/todo.service';
+import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
 import { Todo } from '../../model/todo';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as moment from 'moment';
@@ -36,9 +37,7 @@ export class TodoEditComponent implements OnInit {
     // tslint:disable-next-line: deprecation
     this.activatedRoute.queryParams.subscribe((params: Params) => {
       this.todoId = params.id;
-      console.log(this.todoId);
       if (this.todoId !== undefined) {
-        console.log(this.todoId);
         this.getTodoDetailById(this.todoId);
       } else {
         this.router.navigate(['/']);
@@ -47,8 +46,6 @@ export class TodoEditComponent implements OnInit {
   }
 
   getTodoDetailById(id: any): void {
-    // tslint:disable-next-line: radix
-    console.log(id);
     this.todoDetail = this.todoService.getTodoById(id);
     this.viewTask = this.fb.group({
       title: this.todoDetail.title,
@@ -59,6 +56,11 @@ export class TodoEditComponent implements OnInit {
     });
   }
 
+  getRandomColor(): any {
+    const color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
+  }
+
   onClickSubmit(): void {
     this.deleteToDobyId();
     const tempDate = this.viewTask.value.date;
@@ -66,6 +68,7 @@ export class TodoEditComponent implements OnInit {
     const date = moment(tempDate).format('YYYY-MM-DD');
     this.viewTask.value.id = Date.now();
     this.viewTask.value.date = date;
+    this.viewTask.value.color = this.getRandomColor();
     this.todoService.updateTodoById(this.viewTask.value);
     this.router.navigate(['/todo-list']);
   }

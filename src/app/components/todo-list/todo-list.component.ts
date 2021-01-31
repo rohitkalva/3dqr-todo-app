@@ -29,11 +29,6 @@ export class TodoListComponent implements OnInit {
     this.router.navigate(['/todo-detail']);
   }
 
-  getRandomColor(): any {
-    const color = Math.floor(0x1000000 * Math.random()).toString(16);
-    return '#' + ('000000' + color).slice(-6);
-  }
-
   onResize(event): void {
     const windowsize = event;
     if (windowsize > 250 && windowsize <= 500) {
@@ -53,16 +48,8 @@ export class TodoListComponent implements OnInit {
     }
   }
 
-  // getTodoById(id: any): void {
-  //   // tslint:disable-next-line: radix onClickEditTodoDetail
-  //   const temp = this.todoService.getTodoById(id);
-  //   console.log(temp);
-  //   // this.router.navigate(['/todo-detail'], {queryParams: {id}});
-  // }
-
   todoEdit(id: any): void {
     const todoValue = this.todoService.getTodoById(id);
-    console.log(todoValue);
     this.router.navigate(['/todo-edit'], {queryParams: {id}});
   }
 }

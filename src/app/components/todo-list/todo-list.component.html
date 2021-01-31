@@ -12,7 +12,7 @@
           <mat-card-title>{{tile.text}}</mat-card-title>
         </mat-card-header> -->
         <p>
-          <span [ngStyle]="{'background-color': getRandomColor(), 'display': 'inline'}">
+          <span [ngStyle]="{'background-color': todo.color, 'display': 'inline'}">
             {{todo.tag}}
           </span>
         </p>

@@ -31,7 +31,10 @@ export class TodoDetailComponent implements OnInit {
 
   ngOnInit(): void {
 }
-
+  getRandomColor(): any {
+    const color = Math.floor(0x1000000 * Math.random()).toString(16);
+    return '#' + ('000000' + color).slice(-6);
+  }
   onClickSubmit(): void {
     if (!this.AddTask.valid) {
       return;
@@ -42,6 +45,7 @@ export class TodoDetailComponent implements OnInit {
     const date = moment(tempDate).format('YYYY-MM-DD');
     this.AddTask.value.id = Date.now();
     this.AddTask.value.date = date;
+    this.AddTask.value.color = this.getRandomColor();
     this.todoService.updateTodoById(this.AddTask.value);
   }
 }

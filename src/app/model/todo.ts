@@ -6,5 +6,6 @@ export class Todo {
         public project: string,
         public tag: string,
         public date: string,
+        public color: string
     ) { }
 }
