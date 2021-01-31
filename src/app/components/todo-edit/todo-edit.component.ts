@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { TodoService } from '../../services/todo.service';
-import { TodoDetailComponent } from '../todo-detail/todo-detail.component';
 import { Todo } from '../../model/todo';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 
 @Component({
@@ -21,6 +21,7 @@ export class TodoEditComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private todoService: TodoService,
+    private toastr: ToastrService,
     private activatedRoute: ActivatedRoute
   ) {
     this.viewTask = this.fb.group({
@@ -64,9 +65,10 @@ export class TodoEditComponent implements OnInit {
 
   onClickSubmit(): void {
     if (!this.viewTask.valid) {
+      this.toastr.error('Error in updating the task!', 'Error');
       return;
     }
-    this.deleteToDobyId();
+    this.todoService.deleteTodoDetail(this.todoId);
     const tempDate = this.viewTask.value.date;
     delete this.viewTask.value.date;
     const date = moment(tempDate).format('YYYY-MM-DD');
@@ -75,10 +77,12 @@ export class TodoEditComponent implements OnInit {
     this.viewTask.value.color = this.getRandomColor();
     this.todoService.updateTodoById(this.viewTask.value);
     this.router.navigate(['/todo-list']);
+    this.toastr.success('Task updated successfully!', 'Updated');
   }
 
   deleteToDobyId(): void {
     this.todoService.deleteTodoDetail(this.todoId);
     this.router.navigate(['/']);
+    this.toastr.success('Task deleted successfully!', 'Deleted');
   }
 }

@@ -4,6 +4,7 @@ import { TodoService } from '../../services/todo.service';
 import { Todo } from '../../model/todo';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as moment from 'moment';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class TodoDetailComponent implements OnInit {
   public todoDetail =  {} as Todo;
   public mode: string;
   constructor(private fb: FormBuilder, private router: Router,
+              private toastr: ToastrService,
               private todoService: TodoService, private activatedRoute: ActivatedRoute) {
       this.AddTask = this.fb.group({
       title: [''],
@@ -37,6 +39,7 @@ export class TodoDetailComponent implements OnInit {
   }
   onClickSubmit(): void {
     if (!this.AddTask.valid) {
+      this.toastr.error('Error in adding the task!', 'Error');
       return;
     }
     this.router.navigate(['/todo-list']);
@@ -47,5 +50,6 @@ export class TodoDetailComponent implements OnInit {
     this.AddTask.value.date = date;
     this.AddTask.value.color = this.getRandomColor();
     this.todoService.updateTodoById(this.AddTask.value);
+    this.toastr.success('Task added successfully!', 'Success');
   }
 }
