@@ -63,6 +63,9 @@ export class TodoEditComponent implements OnInit {
   }
 
   onClickSubmit(): void {
+    if (!this.viewTask.valid) {
+      return;
+    }
     this.deleteToDobyId();
     const tempDate = this.viewTask.value.date;
     delete this.viewTask.value.date;

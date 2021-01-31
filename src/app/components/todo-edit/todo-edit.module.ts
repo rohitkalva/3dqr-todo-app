@@ -10,6 +10,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [TodoEditComponent],
@@ -22,6 +23,7 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatDatepickerModule,
     MatIconModule,
+    MatButtonModule,
     MatCardModule
   ],
   providers: [
