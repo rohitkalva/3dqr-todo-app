@@ -21,8 +21,15 @@ export class TodoListComponent implements OnInit {
     this.loadAllTodoList();
     this.onResize(window.innerWidth);
   }
+
   loadAllTodoList(): void {
-    this.todos = this.todoService.getAllTodos();
+    const todo = this.todoService.getAllTodos();
+    const sortedActivities = todo.sort(function compare(a: any, b: any): any {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA.getTime() - dateB.getTime();
+    });
+    this.todos = sortedActivities;
   }
 
   onClickAddTodo(): void {
